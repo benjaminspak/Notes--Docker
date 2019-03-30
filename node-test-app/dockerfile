@@ -1,5 +1,5 @@
 # Build off this base image
-FROM node:10.13.0
+FROM node:7
 
 # Set up app directory
 WORKDIR /usr/src/app
