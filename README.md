@@ -32,12 +32,29 @@ EXPOSE 8080
 
 1. Create the "Docker Image" `docker image build -t app-name-here .`
   - Builds a Docker image with the tag of "app-name-here" in the current directory.
-1. Confirm your build with `docker images command`.
+1. Confirm your build with `docker images` command.
 1. Create a container based on the image.
-  - `docker run -p 8080:8080 app-name-here`
+  - `docker run -p 8080:8080 -d app-name-here`
   - Select the tag.
-
-- Using the `--detach` options allows you to run something like a server, without that process needing your open CLI window. It instead runs the process in the background.
+  - Using the `-d` options allows you to run something like a server, without that process needing your open CLI window. It instead runs the process in the background.
 - To get a list of running containers use `docker ps`. PS stands for process status.  
 - Docker creates three networks for you by default. Use `docker network ls` to list them.
+- Use `docker images` to list all docker images.
 - `docker rmi image-name` to remove images.
+- Use `docker stop my_container` to stop.
+
+- To run a shell on the container use `docker exec -it container-id /bin/bash`.
+- To verify exposed ports use `docker ps`.
+- Use `docker container ls` to list docker containers.
+
+[8 Protips to Start Killing It When Dockerizing Node.js](https://nodesource.com/blog/8-protips-to-start-killing-it-when-dockerizing-node-js/)
+
+## Common Errors
+
+- "Bind for 0.0.0.0:8080 failed: port is already allocated."
+- "You need to make sure that the previous container you launched is killed, before launching a new one that uses the same port."
+
+```
+docker container ls
+docker rm -f <container-name>
+```
