@@ -30,7 +30,7 @@ COPY alternate.py alternate.py
 EXPOSE 8080
 ```
 
-1. Create the "Docker Image" `cocker image build -t app-name-here .`
+1. Create the "Docker Image" `docker image build -t app-name-here .`
   - Builds a Docker image with the tag of "app-name-here" in the current directory.
 1. Confirm your build with `docker images command`.
 1. Create a container based on the image.
